@@ -9,16 +9,6 @@ const Wheel = props => {
   const spot = props.state
   const dispatch = useDispatch();
 
-  // const moveClock = e => {
-  //   e.preventDefault()
-  //   props.moveClockwise()
-  // }
-  
-  // const moveCounterClock = e => {
-  //   e.preventDefault()
-  //   props.moveCounterClockwise()
-  // }
-
   return (
     <div id="wrapper">
       <div id="wheel">
