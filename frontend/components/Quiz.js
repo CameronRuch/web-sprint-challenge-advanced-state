@@ -33,7 +33,7 @@ const submitAnswer = e => {
                 <div key={answer.answer_id} className={` answer ${props.selectedAnswer === answer.answer_id ? "selected" : ""} `}>
                 {answer.text}
                 <button onClick={ () => dispatch(selectAnswer(answer.answer_id))}>
-                  {props.selectedAnswer === answer.answer_id ? "Selected" : "Select"}
+                  {props.selectedAnswer === answer.answer_id ? "SELECTED" : "Select"}
                 </button>
               </div>
                 )

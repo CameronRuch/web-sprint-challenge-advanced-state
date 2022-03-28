@@ -15,10 +15,22 @@ export function Form(props) {
 
   const { newQuestion, newTrueAnswer, newFalseAnswer } = form;
 
-  const onSubmit = (evt) => {
-    evt.preventDefault(); 
-    postQuiz(newQuestion, newTrueAnswer, newFalseAnswer)
-    console.log(form)
+  const onSubmit = (e) => {
+    e.preventDefault(); 
+    const inputs = {
+      question_text: newQuestion,
+      true_answer_text: newTrueAnswer,
+      false_answer_text: newFalseAnswer,
+    }
+    props.postQuiz(inputs)
+  }
+
+  const toggleButton = () => {
+    return (
+      newQuestion.trim().length < 1 ||
+      newTrueAnswer.trim().length < 1 ||
+      newFalseAnswer.trim().length < 1 
+    )
   }
 
   return (
@@ -27,7 +39,7 @@ export function Form(props) {
       <input value={newQuestion} maxLength={50} onChange={onChange} id="newQuestion" placeholder="Enter question" />
       <input value={newTrueAnswer} maxLength={50} onChange={onChange} id="newTrueAnswer" placeholder="Enter true answer" />
       <input value={newFalseAnswer} maxLength={50} onChange={onChange} id="newFalseAnswer" placeholder="Enter false answer" />
-      <button id="submitNewQuizBtn">Submit new quiz</button>
+      <button disabled={toggleButton()} id="submitNewQuizBtn">Submit new quiz</button>
     </form>
   )
 }

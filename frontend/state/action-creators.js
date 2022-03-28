@@ -66,10 +66,10 @@ export function postAnswer(quiz_id, answer_id) {
     // - Dispatch the fetching of the next quiz
   }
 }
-export function postQuiz(newQuestionText, newTrueAnswerText, newFalseAnswerText) {
+export function postQuiz({question_text, true_answer_text, false_answer_text}) {
   return function (dispatch) {
     axios.post('http://localhost:9000/api/quiz/new',
-    { newQuestionText, newTrueAnswerText, newFalseAnswerText })
+    { question_text, true_answer_text, false_answer_text })
     .then(res => {
       dispatch(setMessage(res.data.question))
       dispatch(resetForm())
