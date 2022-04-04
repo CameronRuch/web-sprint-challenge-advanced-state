@@ -8,12 +8,12 @@ const Quiz = props => {
 
 const dispatch = useDispatch();
 
-if (!props.quiz) {
-  useEffect(() => {
+useEffect(() => {
+  if (!props.quiz) {
     props.fetchQuiz()
+  }
   }, [])
   
-}
 
 const submitAnswer = e => {
   console.log(props)
