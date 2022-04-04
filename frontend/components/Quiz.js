@@ -8,9 +8,12 @@ const Quiz = props => {
 
 const dispatch = useDispatch();
 
-useEffect(() => {
-  props.fetchQuiz()
-}, [])
+if (!props.quiz) {
+  useEffect(() => {
+    props.fetchQuiz()
+  }, [])
+  
+}
 
 const submitAnswer = e => {
   console.log(props)
@@ -23,8 +26,8 @@ const submitAnswer = e => {
   return (
     <div id="wrapper">
       {
-        // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        props.quiz?.question ? (
+        // quiz already in state? Let's use that, otherwise render "Loading next quiz"
+        props.quiz ? (
           <>
             <h2>{props.quiz.question}</h2>
             <div id="quizAnswers">
